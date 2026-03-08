@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">欢迎使用图书管理系统</view>
+    <view class="stats">
+      <view class="stat-item">
+        <text class="stat-number">{{totalBooks}}</text>
+        <text class="stat-label">图书总数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number available">{{availableBooks}}</text>
+        <text class="stat-label">可借阅</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number borrowed">{{borrowedBooks}}</text>
+        <text class="stat-label">已借出</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">快捷操作</view>
+    <button class="btn-primary" bindtap="goToBookList">查看图书列表</button>
+    <button class="btn-success" bindtap="goToBorrowList">查看借阅记录</button>
+    <button class="btn-warning" bindtap="importBestsellers">导入畅销书数据</button>
+    <button class="btn-warning" bindtap="scanAddBook">扫码添加图书</button>
+    <button class="btn-primary" bindtap="goToAddBook">手动添加图书</button>
+  </view>
+
+  <view class="card" wx:if="{{recentBooks.length > 0}}">
+    <view class="section-title">最近添加</view>
+    <view class="book-list">
+      <view class="book-item" wx:for="{{recentBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="book-info">
+          <text class="book-title">{{item.title}}</text>
+          <text class="book-author">{{item.author}}</text>
+        </view>
+        <text class="book-status {{item.status === 'available' ? 'status-available' : 'status-borrowed'}}">
+          {{item.status === 'available' ? '可借' : '已借'}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

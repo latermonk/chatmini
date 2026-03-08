@@ -1,0 +1,60 @@
+<view class="container" wx:if="{{book}}">
+  <view class="card">
+    <view class="book-header">
+      <image class="book-cover-large" src="{{book.cover || '/images/default-book.svg'}}" mode="aspectFill"></image>
+      <view class="book-info">
+        <text class="book-title-large">{{book.title}}</text>
+        <text class="book-author-large">作者: {{book.author}}</text>
+        <view class="book-status-badge {{book.status === 'available' ? 'badge-available' : 'badge-borrowed'}}">
+          {{book.status === 'available' ? '可借阅' : '已借出'}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="detail-row">
+      <text class="detail-label">ISBN</text>
+      <text class="detail-value">{{book.isbn}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">出版社</text>
+      <text class="detail-value">{{book.publisher}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">出版日期</text>
+      <text class="detail-value">{{book.publishDate}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">位置</text>
+      <text class="detail-value">{{book.location}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">入库时间</text>
+      <text class="detail-value">{{book.addTime}}</text>
+    </view>
+    <view class="detail-row" wx:if="{{book.description}}">
+      <text class="detail-label">简介</text>
+      <text class="detail-value description">{{book.description}}</text>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{currentBorrow}}">
+    <view class="section-title">当前借阅信息</view>
+    <view class="detail-row">
+      <text class="detail-label">借阅人</text>
+      <text class="detail-value">{{currentBorrow.borrower}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">借阅时间</text>
+      <text class="detail-value">{{currentBorrow.borrowTime}}</text>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button wx:if="{{book.status === 'available'}}" class="btn-primary" bindtap="borrowBook">借出图书</button>
+    <button wx:else class="btn-success" bindtap="returnBook">归还图书</button>
+    <button class="btn-warning" bindtap="editBook">编辑信息</button>
+    <button class="btn-danger" bindtap="deleteBook">删除图书</button>
+  </view>
+</view>

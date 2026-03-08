@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="scan-area">
+    <view class="scan-box">
+      <view class="scan-line"></view>
+    </view>
+    <text class="scan-tip">将ISBN条码放入框内即可自动扫描</text>
+  </view>
+
+  <view class="result-area" wx:if="{{scanResult}}">
+    <view class="card">
+      <view class="section-title">扫描结果</view>
+      <view class="result-item">
+        <text class="result-label">ISBN:</text>
+        <text class="result-value">{{scanResult}}</text>
+      </view>
+      <button class="btn-primary" bindtap="fillForm">填写图书信息</button>
+      <button class="btn-warning" bindtap="scanAgain">重新扫描</button>
+    </view>
+  </view>
+
+  <button class="btn-success scan-btn" bindtap="startScan" wx:if="{{!scanResult}}">开始扫描</button>
+</view>

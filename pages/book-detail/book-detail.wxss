@@ -1,0 +1,89 @@
+.book-header {
+  display: flex;
+  padding: 20rpx;
+}
+
+.book-cover-large {
+  width: 200rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  object-fit: cover;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-title-large {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.5;
+}
+
+.book-author-large {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.book-status-badge {
+  align-self: flex-start;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  color: white;
+  margin-top: 20rpx;
+}
+
+.badge-available {
+  background-color: #07C160;
+}
+
+.badge-borrowed {
+  background-color: #FA9D3B;
+}
+
+.detail-row {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  width: 150rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.detail-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.detail-value.description {
+  line-height: 1.6;
+}
+
+.action-buttons {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-buttons button {
+  margin-bottom: 20rpx;
+}
+
+.action-buttons button:last-child {
+  margin-bottom: 0;
+}

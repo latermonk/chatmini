@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="back-btn" bindtap="goBack">
+    <text>← 返回首页</text>
+  </view>
+
+  <view class="filter-tabs">
+    <view class="tab-item {{filterType === 'all' ? 'active' : ''}}" bindtap="setFilter" data-type="all">全部</view>
+    <view class="tab-item {{filterType === 'borrowed' ? 'active' : ''}}" bindtap="setFilter" data-type="borrowed">借阅中</view>
+    <view class="tab-item {{filterType === 'returned' ? 'active' : ''}}" bindtap="setFilter" data-type="returned">已归还</view>
+  </view>
+
+  <view class="borrow-list" wx:if="{{filteredRecords.length > 0}}">
+    <view class="record-card" wx:for="{{filteredRecords}}" wx:key="id" bindtap="goToBookDetail" data-id="{{item.bookId}}">
+      <view class="record-header">
+        <text class="book-name">{{item.bookTitle}}</text>
+        <view class="status-badge {{item.status === 'borrowed' ? 'badge-borrowed' : 'badge-returned'}}">
+          {{item.status === 'borrowed' ? '借阅中' : '已归还'}}
+        </view>
+      </view>
+
+      <view class="record-info">
+        <view class="info-row">
+          <text class="info-label">借阅人:</text>
+          <text class="info-value">{{item.borrower}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">借阅时间:</text>
+          <text class="info-value">{{item.borrowTime}}</text>
+        </view>
+        <view class="info-row" wx:if="{{item.returnTime}}">
+          <text class="info-label">归还时间:</text>
+          <text class="info-value">{{item.returnTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-tip" wx:else>
+    <text>暂无借阅记录</text>
+  </view>
+</view>

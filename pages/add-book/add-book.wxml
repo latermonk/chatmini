@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">{{isEdit ? '编辑图书' : '添加图书'}}</view>
+
+    <view class="form-item">
+      <text class="form-label">书名 *</text>
+      <input class="form-input" placeholder="请输入书名" value="{{formData.title}}" bindinput="onInput" data-field="title" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">作者 *</text>
+      <input class="form-input" placeholder="请输入作者" value="{{formData.author}}" bindinput="onInput" data-field="author" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">ISBN *</text>
+      <input class="form-input" placeholder="请输入ISBN" value="{{formData.isbn}}" bindinput="onInput" data-field="isbn" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">出版社</text>
+      <input class="form-input" placeholder="请输入出版社" value="{{formData.publisher}}" bindinput="onInput" data-field="publisher" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">出版日期</text>
+      <picker mode="date" value="{{formData.publishDate}}" bindchange="onDateChange">
+        <view class="picker">
+          {{formData.publishDate || '请选择出版日期'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">存放位置 *</text>
+      <input class="form-input" placeholder="请输入存放位置" value="{{formData.location}}" bindinput="onInput" data-field="location" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">封面图片</text>
+      <view class="cover-upload" bindtap="chooseImage">
+        <image wx:if="{{formData.cover}}" class="cover-preview" src="{{formData.cover}}" mode="aspectFill"></image>
+        <view wx:else class="cover-placeholder">
+          <text class="placeholder-icon">+</text>
+          <text class="placeholder-text">点击上传封面</text>
+        </view>
+      </view>
+      <button wx:if="{{formData.cover}}" class="btn-small" bindtap="clearCover">清除封面</button>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">简介</text>
+      <textarea class="form-textarea" placeholder="请输入图书简介" value="{{formData.description}}" bindinput="onInput" data-field="description" maxlength="500"></textarea>
+    </view>
+
+    <button class="btn-primary" bindtap="submitForm">{{isEdit ? '保存修改' : '添加图书'}}</button>
+    <button wx:if="{{isEdit}}" class="btn-warning" bindtap="cancelEdit">取消编辑</button>
+  </view>
+</view>

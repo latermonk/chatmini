@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="back-btn" bindtap="goBack">
+    <text>← 返回首页</text>
+  </view>
+
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索图书标题或作者" bindinput="onSearch" />
+  </view>
+
+  <view class="filter-tabs">
+    <view class="tab-item {{filterType === 'all' ? 'active' : ''}}" bindtap="setFilter" data-type="all">全部</view>
+    <view class="tab-item {{filterType === 'available' ? 'active' : ''}}" bindtap="setFilter" data-type="available">可借阅</view>
+    <view class="tab-item {{filterType === 'borrowed' ? 'active' : ''}}" bindtap="setFilter" data-type="borrowed">已借出</view>
+  </view>
+
+  <view class="book-list" wx:if="{{filteredBooks.length > 0}}">
+    <view class="book-card" wx:for="{{filteredBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="book-cover-wrapper">
+        <image class="book-cover" src="{{item.cover || '/images/default-book.svg'}}" mode="aspectFill"></image>
+        <view class="book-badge {{item.status === 'available' ? 'badge-available' : 'badge-borrowed'}}">
+          {{item.status === 'available' ? '可借' : '已借'}}
+        </view>
+      </view>
+      <view class="book-content">
+        <text class="book-title">{{item.title}}</text>
+        <text class="book-author">作者: {{item.author}}</text>
+        <text class="book-isbn">ISBN: {{item.isbn}}</text>
+        <text class="book-location">位置: {{item.location}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-tip" wx:else>
+    <text>暂无图书数据</text>
+  </view>
+</view>

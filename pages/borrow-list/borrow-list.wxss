@@ -1,0 +1,98 @@
+.back-btn {
+  padding: 20rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+  color: #1AAD19;
+  font-size: 28rpx;
+}
+
+.filter-tabs {
+  display: flex;
+  background-color: white;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 15rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 8rpx;
+  margin: 0 10rpx;
+}
+
+.tab-item.active {
+  background-color: #1AAD19;
+  color: white;
+}
+
+.borrow-list {
+  padding: 0 20rpx;
+}
+
+.record-card {
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.book-name {
+  flex: 1;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.status-badge {
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  color: white;
+}
+
+.badge-borrowed {
+  background-color: #FA9D3B;
+}
+
+.badge-returned {
+  background-color: #07C160;
+}
+
+.record-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  width: 150rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+}

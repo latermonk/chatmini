@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/book-list/book-list",
+    "pages/book-detail/book-detail",
+    "pages/borrow-list/borrow-list",
+    "pages/add-book/add-book",
+    "pages/scan-code/scan-code"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1AAD19",
+    "navigationBarTitleText": "图书管理系统",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
